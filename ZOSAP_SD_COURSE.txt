@@ -1,0 +1,7 @@
+@EndUserText.label: 'SDEF for project'
+define service ZOSAP_SD_COURSE {
+  expose ZOSAP_C_COURSE   as Course;
+  expose ZOSAP_C_SCHEDULE as Schedule;
+  expose I_Country        as Country;
+  expose I_Currency       as Currency;
+}

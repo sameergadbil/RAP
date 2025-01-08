@@ -1,0 +1,21 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Basic view on course table'
+define root view entity ZOSAP_I_COURSE as select from zosap_course as Course
+composition[0..*] of ZOSAP_I_SCHEDULE as _Schedule
+association [0..1] to I_Currency        as _Currency on $projection.CurrencyCode = _Currency.Currency
+association [0..1] to I_Country         as _Country  on $projection.Country = _Country.Country
+{
+  key Course.course_uuid as CourseUuid,
+  Course.course_id as CourseId,
+  Course.course_name as CourseName,
+  Course.course_length as CourseLength,
+  Course.country as Country,
+  Course.price as Price,
+  Course.currency_code as CurrencyCode,
+  Course.last_changed_at as LastChangedAt,
+  Course.local_last_changed_at as LocalLastChangedAt,
+  _Currency,
+  _Country,
+  _Schedule
+
+}

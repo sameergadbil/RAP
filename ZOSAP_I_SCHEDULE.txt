@@ -1,0 +1,16 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Basic view on schedule table'
+define view entity ZOSAP_I_SCHEDULE as select from zosap_schedule as Schedule
+association to parent ZOSAP_I_COURSE as _Course
+    on $projection.CourseUuid = _Course.CourseUuid
+{
+    key Schedule.schedule_uuid as ScheduleUuid,
+    Schedule.course_begin as CourseBegin,
+    Schedule.course_uuid as CourseUuid,
+    Schedule.location as Location,
+    Schedule.trainer as Trainer,
+    Schedule.is_online as IsOnline,
+    Schedule.last_changed_at as LastChangedAt,
+    Schedule.local_last_changed_at as LocalLastChangedAt,
+    _Course
+}

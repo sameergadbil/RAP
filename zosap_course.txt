@@ -1,0 +1,20 @@
+@EndUserText.label : 'Course Table'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zosap_course {
+
+  key client            : abap.clnt not null;
+  key course_uuid       : abap.raw(16) not null;
+  course_id             : abap.char(10);
+  course_name           : abap.sstring(60);
+  course_length         : abap.int1;
+  country               : land1;
+  @Semantics.amount.currencyCode : 'zosap_course.currency_code'
+  price                 : abap.curr(6,2);
+  currency_code         : abap.cuky;
+  last_changed_at       : timestampl;
+  local_last_changed_at : timestampl;
+
+}

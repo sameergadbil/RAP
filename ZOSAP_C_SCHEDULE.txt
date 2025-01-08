@@ -1,0 +1,19 @@
+@EndUserText.label: 'Consumption view for Schedule'
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@Search.searchable: true
+@Metadata.allowExtensions: true
+define view entity ZOSAP_C_SCHEDULE as projection on ZOSAP_I_SCHEDULE
+{
+    key ScheduleUuid,
+    CourseBegin,
+    CourseUuid,
+    @Search.defaultSearchElement: true
+    Location,
+    @Search.defaultSearchElement: true
+    Trainer,
+    IsOnline,
+    LastChangedAt,
+    LocalLastChangedAt,
+    /* Associations */
+    _Course: redirected to parent ZOSAP_C_COURSE
+}
