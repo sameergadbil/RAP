@@ -1,0 +1,26 @@
+@EndUserText.label : 'Travel table'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zdmo_travel {
+
+  key client      : mandt not null;
+  key travel_id   : int4 not null;
+  agency_id       : int4;
+  customer_id     : int4;
+  begin_date      : abap.dats;
+  end_date        : abap.dats;
+  @Semantics.amount.currencyCode : 'zdmo_travel.currency_code'
+  booking_fee     : abap.curr(15,2);
+  @Semantics.amount.currencyCode : 'zdmo_travel.currency_code'
+  total_price     : abap.curr(15,2);
+  currency_code   : abap.cuky;
+  description     : abap.char(30);
+  overall_status  : abap.char(1);
+  created_by      : syuname;
+  created_at      : timestampl;
+  last_changed_by : syuname;
+  last_chnaged_at : timestampl;
+
+}
