@@ -1,0 +1,22 @@
+@EndUserText.label : 'Booking supplement table'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zdmo_booksuppl {
+
+  key client      : mandt not null;
+  key travel_id   : int4 not null;
+  key suppl_id    : int4 not null;
+  key boooking_id : int4 not null;
+  customer_id     : int4;
+  description     : abap.char(30);
+  @Semantics.amount.currencyCode : 'zdmo_booksuppl.currency_code'
+  price           : abap.curr(15,2);
+  currency_code   : abap.cuky;
+  created_by      : syuname;
+  created_at      : timestampl;
+  last_changed_by : syuname;
+  last_changed_at : timestampl;
+
+}
