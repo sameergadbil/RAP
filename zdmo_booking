@@ -1,0 +1,23 @@
+@EndUserText.label : 'Booking table'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zdmo_booking {
+
+  key client      : mandt not null;
+  key booking_id  : int4 not null;
+  booking_date    : abap.dats;
+  customer_id     : int4;
+  carrier_id      : s_carr_id;
+  connection_id   : s_conn_id;
+  flight_date     : abap.dats;
+  @Semantics.amount.currencyCode : 'zdmo_booking.currency_code'
+  flight_price    : abap.curr(15,2);
+  currency_code   : abap.cuky;
+  created_by      : syuname;
+  created_at      : timestampl;
+  last_changed_by : syuname;
+  last_changed_at : timestampl;
+
+}
